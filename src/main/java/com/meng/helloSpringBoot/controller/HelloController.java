@@ -22,6 +22,15 @@ public class HelloController {
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello() {
+        //测试超时
+//        int sleepTime = new Random().nextInt(3000);
+//        logger.info("sleepTime: " + sleepTime);
+//        try {
+//            Thread.sleep(sleepTime);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
         ServiceInstance instance = discoveryClient.getLocalServiceInstance();
         logger.info("/hello, host:" + instance.getHost() + ", service_id:" + instance.getServiceId());
         return "hello, SpringBoot-dev";
